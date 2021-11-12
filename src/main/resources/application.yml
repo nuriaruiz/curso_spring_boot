@@ -1,0 +1,40 @@
+spring:
+  jpa:
+    show-sql: true
+
+management:
+  server:
+    add-application-context-header: true
+    port: 8081                                 # Allows to change the default manage port.
+  health:
+    sensitive: false
+    db:
+      enabled: true                            # Enable database health check
+    diskspace:
+      enabled: true                            # Enable disk space health check
+      path: /                                  # Path used to compute the available disk space
+      threshold: 0                             # Minimum disk space that should be available, in bytes
+    elasticsearch:
+      enabled: false                           # Enable elasticsearch health check
+    jms:
+      enabled: false                           # Enable JMS health check
+    mail:
+      enabled: false                           # Enable Mail health check
+    binders:
+      enabled: false                           # Enable binders health check
+    mongo:
+      enabled: false                           # Enable MongoDB health check
+    rabbit:
+      enabled: false                           # Enable RabbitMQ health check
+    redis:
+      enabled: false                           # Enable Redis health check
+    solr:
+      enabled: false                           # Enable Solr health check
+    consul:
+      enabled: false                           # Enable Consul health check
+  endpoints:
+    enabled-by-default: true
+    web:
+      base-path: /manage
+      exposure:
+        include: info,env,restart,shutdown,health,mappings,refresh,beans,mappings,conditions,configprops,heapdump,threaddump,metrics
